@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vive moi</title>
+  </head>
+    <style type="text/css">
+   body {font-family: 'Nunito', sans-serif; text-align:center;}
+   </style>
+
+<body>
+
+  <h1><b>Bienvenue dans l'endroit le plus approprié pour critiquer qui tu veux</b></h1>
+
+  <p></p>
+  <h3>Voilà les derniers potins :</h3>
+
+  <% @all_gossips.each do |select| %>
+      <p>
+      👉 <b><%= select.title %></b><br/>
+      par <b><%= select.user.first_name %></b><br/>
+
+      </p>
+  <% end %>
+
+    <p></p>
+    <a class="btn btn-warning" href="/gossips/new/" role="button">Crée un nouveau potin !</a>
+
+  </body>
+</html>
