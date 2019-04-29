@@ -18,10 +18,11 @@
   <% @all_gossips.each do |select| %>
       <p>
       👉 <b><%= select.title %></b><br/>
-      par <b><%= select.user.first_name %></b><br/>
-
+      🙊 par <b><%= select.user.first_name %></b><br/>
+      <%= link_to "Voir le potin", the_gossip_path(:id => select.id), class:"btn btn-primary btn-sm", role:"button" %>
       </p>
-  <% end %>
+      <% end %>
+
 
     <p></p>
     <a class="btn btn-warning" href="/gossips/new/" role="button">Crée un nouveau potin !</a>

@@ -15,4 +15,12 @@ class GossipsController < ApplicationController
   def welcome
   end
 
+  def gossip
+    @gossip = Gossip.find(params[:id])
+  end
+
+  def author
+    @author = User.find(params[:id])
+  end
+
 end

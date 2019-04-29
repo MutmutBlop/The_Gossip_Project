@@ -1,24 +1,17 @@
-# README
+# The Gossip Project
+## Le meilleur endroit sur terre pour cracher sur qui tu veux
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### THP S5 J1
+#### Mathilde Briend // Thibault Telliez // Antoine Jacques // Vincent Gillibert
 
-Things you may want to cover:
+Construire le front d'une app Rails développée plus tôt
+* Liaisons entre les routes, controllers et views
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Pour tester l'app :
+* Cloner le repo
+* `bundle install`
+* `rails db:migrate`
+* `rails db:seed`
+* `rails server`
+* Se rendre sur localhost:3000/ dans le navigateur
+* Enjoy ce super site social
