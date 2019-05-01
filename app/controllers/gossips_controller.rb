@@ -2,25 +2,21 @@ require 'gossip'
 
 class GossipsController < ApplicationController
 
-  def home
-    @all_gossips = Gossip.all
-  end
+  # def home
+  #   @all_gossips = Gossip.all
+  # end
 
-  def team
-  end
+  # def team
+  # end
+  #
+  # def contact
+  # end
+  #
+  # def welcome
+  # end
 
-  def contact
-  end
-
-  def welcome
-  end
-
-  def gossip
+  def show
     @gossip = Gossip.find(params[:id])
-  end
-
-  def author
-    @author = User.find(params[:id])
   end
 
   def new

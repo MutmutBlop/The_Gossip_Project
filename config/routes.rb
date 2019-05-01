@@ -1,24 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :gossips
+  root 'static_pages#index'
 
-  get 'gossips/home'
-  get 'gossips/team'
-  get 'gossips/contact'
-  get 'gossips/welcome'
-  get 'gossips/gossip'
-  get 'gossips/author'
+  resources :static_pages
+  resources :gossips do
+    resources :comments
+  end
+  resources :users
+  resources :cities
 
-  get '/', to: 'gossips#home'
-
-  get '/team', to: 'gossips#team'
-
-  get '/contact', to: 'gossips#contact'
-
-  get '/welcome/:anything', to: 'gossips#welcome'
-
-  get 'gossip/:id', to: 'gossips#gossip', as: 'the_gossip'
-
-  get 'gossip/author/:id', to: 'gossips#author', as: 'the_author'
+  get '/team', to: 'static_pages#team'
+  get '/contact', to: 'static_pages#contact'
+  get '/welcome/', to: 'static_pages#welcome'
+  get '/welcome/:anything', to: 'static_pages#welcome'
 
 end
