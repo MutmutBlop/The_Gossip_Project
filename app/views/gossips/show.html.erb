@@ -11,10 +11,14 @@
     <h3><b> <%= @gossip.title %> </b></h3>
         <p> 👅 <%= @gossip.content %> </p>
         <p> 🗓 Date de création : <%= @gossip.created_at %> </p>
-        <p> 💩 Ce doss' a été lâché par <%= @gossip.user.first_name %> (t'as cru qu'on allait garder ça anonyme)</p>
+        <p> 💩 Ce doss' a été lâché par <b><%= @gossip.user.first_name %></b> (t'as cru qu'on allait garder ça anonyme)</p>
         <p>
-          <%= link_to "Voir l'auteur", user_path(:id => @gossip.user.id), class:"btn btn-primary btn-sm", role:"button" %>
-          <%= link_to "Voir la ville", city_path(:id => @gossip.user.city.id), class:"btn btn-primary btn-sm", role:"button" %>
+        <%= link_to "Voir l'auteur", user_path(:id => @gossip.user.id), class:"btn btn-primary btn-sm", role:"button" %>
+        <%= link_to "Voir la ville", city_path(:id => @gossip.user.city.id), class:"btn btn-primary btn-sm", role:"button" %>
+        </p>
+        <p>
+        <%= link_to "Modifier le potin", edit_gossip_path(:id => @gossip.id), class:"btn btn-warning btn-sm", role:"button" %>
+        <%= link_to "Supprimer", @gossip, method: :delete, class:"btn btn-danger btn-sm", role:"button" %>
         </p>
 
   </body>
