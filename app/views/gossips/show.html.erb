@@ -21,5 +21,21 @@
         <%= link_to "Supprimer", @gossip, method: :delete, class:"btn btn-danger btn-sm", role:"button" %>
         </p>
 
+        <div class="formulaire">
+        <p>
+          <%= form_tag url_for(controller => 'comments', :action => 'create', :id => @gossip.id), method: "post" do %>
+          <%= label_tag 'Comment' %>
+          <%= text_field_tag 'content' %>
+          <%= submit_tag "Create comment" %>
+          <% end %>
+        </p>
+        </div>
+
+        <%= link_to "Éditer", edit_gossip_path(:id=> @gossip.id), class:"btn btn-info btn-sm", role:"button" %>
+
+        <% @gossip.comments.each do |comment| %>
+          <p> <%= comment.user.first_name %> : <%= comment.content %> </p>
+        <% end %>
+
   </body>
 </html>
