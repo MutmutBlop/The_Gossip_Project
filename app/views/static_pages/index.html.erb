@@ -16,16 +16,16 @@
   <h3>Voilà les derniers potins :</h3>
 
   <% @all_gossips.each do |select| %>
-      <p>
-      👉 <b><%= select.title %></b><br/>
-      🙊 par <b><%= select.user.first_name %></b><br/>
-      <%= link_to "Voir le potin", gossip_path(:id => select.id), class:"btn btn-primary btn-sm", role:"button" %>
-      </p>
-      <% end %>
+    <p>
+    👉 <b><%= select.title %></b><br/>
+    🙊 par <b><%= select.user.first_name %></b><br/>
+    <%= link_to "Voir le potin", gossip_path(:id => select.id), class:"btn btn-primary btn-sm", role:"button" %>
+    </p>
+  <% end %>
 
 
-    <p></p>
-    <a class="btn btn-warning" href="/gossips/new/" role="button">Crée un nouveau potin !</a>
+  <p></p>
+  <a class="btn btn-warning" href="/gossips/new/" role="button">Crée un nouveau potin !</a>
 
   </body>
 </html>

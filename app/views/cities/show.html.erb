@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vive moi</title>
+  </head>
+  <body>
+
+    <h1> Bienvenue dans la charmante ville de <b><%= @city.name %></b> </h1>
+
+    <p>Voilà tous les potins du coin (vous ne verrez plus jamais votre voisin du même oeil) :</p>
+
+    <% @city.gossips.each do |gossip| %>
+      <p>
+        👉 <b><%= gossip.title %></b><br/>
+        🙊 par <b><%= gossip.user.first_name %></b><br/>
+      </p>
+
+      <p>
+        <%= link_to "Voir le potin", gossip_path(:id => gossip.id), class:"btn btn-primary btn-sm", role:"button" %>
+        <%= link_to "Voir l'auteur", user_path(:id => gossip.user.id), class:"btn btn-primary btn-sm", role:"button" %>
+      </p>
+
+    <% end %>
+
+  </body>
+</html>

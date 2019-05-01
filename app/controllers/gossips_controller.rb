@@ -1,19 +1,4 @@
-require 'gossip'
-
 class GossipsController < ApplicationController
-
-  # def home
-  #   @all_gossips = Gossip.all
-  # end
-
-  # def team
-  # end
-  #
-  # def contact
-  # end
-  #
-  # def welcome
-  # end
 
   def show
     @gossip = Gossip.find(params[:id])
@@ -33,7 +18,6 @@ class GossipsController < ApplicationController
       # si ça marche, il redirige vers la page d'index du site
     else
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-      flash[:warning] = "Le gossip ne respecte pas nos règles !"
       render 'new'
     end
 

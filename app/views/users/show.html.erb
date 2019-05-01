@@ -6,15 +6,17 @@
   </head>
   <body>
 
-    <h1>Author page</h1>
-
-    <h1> Vous êtes sur la page de <%= @author.first_name %> </h1>
+    <h1> Haaave you met <b><%= @author.first_name %></b> ?</h1>
 
       <p>Last name : <%= @author.last_name %> </p>
       <p>Description : <%= @author.description %> </p>
       <p>Email : <%= @author.email %> </p>
-      <p>Age : <%= @author.age %> </p>
-      <p>Ville : <%= @author.city_id %> </p>
+      <p>Age : <%= @author.age %> ans</p>
+      <p>Ville : <%= @author.city.name %> </p>
+
+      <p>
+        <%= link_to "Voir la ville", city_path(:id => @author.city.id), class:"btn btn-primary btn-sm", role:"button" %>
+      </p>
 
   </body>
 </html>
