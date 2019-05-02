@@ -20,9 +20,9 @@
         <%= link_to "Voir le potin", gossip_path(:id => gossip.id), class:"btn btn-primary btn-sm", role:"button" %>
         <%= link_to "Voir l'auteur", user_path(:id => gossip.user.id), class:"btn btn-primary btn-sm", role:"button" %>
           <% if gossip.likes.where(user_id: current_user.id).count > 0 %>
-          <%= link_to "Unlike", like_path(:id=> gossip.likes.sample), class:"btn btn-danger btn-sm", role:"button", data: {:method => "delete"} %>
+          <%= link_to "👎", like_path(:id=> gossip.likes.sample), class:"btn btn-danger btn-sm", role:"button", data: {:method => "delete"} %>
           <% else %>
-          <%= link_to "Like", likes_path(:gossip_id=> gossip.id), class:"btn btn-info btn-sm", role:"button", data: {:method => "create"} %>
+          <%= link_to "👍", likes_path(:gossip_id=> gossip.id), class:"btn btn-info btn-sm", role:"button", data: {:method => "create"} %>
         <% end %>
         <span style="font-size:14px;">Likes :<%= gossip.likes.count %></span>
       </p>
