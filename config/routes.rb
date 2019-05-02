@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :cities
+  resources :sessions, only: [:new, :create, :destroy]
 
   get '/team', to: 'static_pages#team'
   get '/contact', to: 'static_pages#contact'

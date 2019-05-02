@@ -5,6 +5,11 @@
     <title>Vive moi</title>
   </head>
   <body>
+    <% if flash[:danger] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:danger] %>
+  </div>
+<% end %>
 
     <h1>Du potin, du potin, du potiiiin</h1>
 
@@ -16,10 +21,12 @@
         <%= link_to "Voir l'auteur", user_path(:id => @gossip.user.id), class:"btn btn-primary btn-sm", role:"button" %>
         <%= link_to "Voir la ville", city_path(:id => @gossip.user.city.id), class:"btn btn-primary btn-sm", role:"button" %>
         </p>
+        <% if current_user.id == @gossip.user.id %>
         <p>
         <%= link_to "Modifier le potin", edit_gossip_path(:id => @gossip.id), class:"btn btn-warning btn-sm", role:"button" %>
         <%= link_to "Supprimer", @gossip, method: :delete, class:"btn btn-danger btn-sm", role:"button" %>
         </p>
+        <% end %>
 
         <div class="formulaire">
         <p>

@@ -21,8 +21,9 @@ User.destroy_all
     last_name: Faker::Movies::StarWars.planet,
     description: Faker::TvShows::BojackHorseman.quote,
     email: Faker::Internet.unique.email,
-    age: rand(18..99),
-    city: City.find(rand(first_city_id..last_city_id))
+    age: rand(18..125),
+    city: City.find(rand(first_city_id..last_city_id)),
+    password: "password"
   )
 end
 

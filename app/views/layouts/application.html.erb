@@ -26,13 +26,32 @@
         </li>
       </ul>
     </div>
-    <a class="btn btn-warning btn-sm" href="<%= new_gossip_path %>" role="button">Créer un potin</a>
-    <a class="btn btn-outline-info btn-sm" href="<%= new_user_path %>" role="button">Inscription</a>
-    <a class="btn btn-info btn-sm" href="<%= new_gossip_path %>" role="button">Connexion</a>
+    <% if logged_in? == true%>
+    Bienvenue <%= current_user.first_name %> 🔥
+    <% end %>
+    <%= link_to "Créer un potin", new_gossip_path, class:"btn btn-warning btn-sm", role:"button" %>
+
+    <% if logged_in? == true%>
+      <%= link_to "Déconnexion", session_path(session.id), method: :delete, class:"btn btn-outline-danger btn-sm", role:"button" %>
+      <% else %>
+      <%= link_to "Inscription", new_user_path, class:"btn btn-outline-info btn-sm", role:"button" %>
+      <%= link_to "Connexion", new_session_path, class:"btn btn-info btn-sm", role:"button" %>
+    <% end %>
   </nav>
 
   <body>
 
+    <% if flash[:danger] %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:danger] %>
+      </div>
+    <% end %>
+
+    <% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
 
     <%= yield %>
 
