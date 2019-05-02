@@ -4,8 +4,8 @@ require 'faker'
 City.destroy_all
 10.times do
   City.create(
-    name: Faker::Games::Fallout.unique.location,
-    zip_code: Faker::Address.unique.zip
+    name: Faker::TvShows::GameOfThrones.city,
+    zip_code: Faker::Address.zip_code
   )
 end
 
@@ -17,12 +17,12 @@ last_city_id = City.last.id
 User.destroy_all
 10.times do
   User.create(
-    first_name: Faker::Movies::LordOfTheRings.character,
-    last_name: Faker::Movies::StarWars.planet,
-    description: Faker::TvShows::BojackHorseman.quote,
+    first_name: Faker::Superhero.prefix,
+    last_name: Faker::Games::Pokemon.name,
+    description: Faker::TvShows::HowIMetYourMother.quote,
     email: Faker::Internet.unique.email,
     age: rand(18..125),
-    city: City.find(rand(first_city_id..last_city_id)),
+    city: City.all.sample, #City.find(rand(first_city_id..last_city_id)),
     password: "password"
   )
 end
@@ -36,7 +36,7 @@ Gossip.destroy_all
 20.times do
   Gossip.create(
     title: Faker::Book.title,
-    content: Faker::Movie.quote + ". " + Faker::Movies::StarWars.quote,
+    content: Faker::Movie.quote + ". " + Faker::Movies::HarryPotter.quote,
     user: User.find(rand(first_user_id..last_user_id))
   )
 end

@@ -18,7 +18,7 @@
   <% @all_gossips.each do |gossip| %>
     <p>
     👉 <b><%= gossip.title %></b><br/>
-    🙊 par <b><%= gossip.user.first_name %></b><br/>
+    🙊 par <b><%= gossip.user.first_name %> <%= gossip.user.last_name %></b><br/>
     <%= link_to "Voir le potin", gossip_path(:id => gossip.id), class:"btn btn-primary btn-sm", role:"button" %>
     <% if logged_in? == true %>
       <% if gossip.likes.where(user_id: current_user.id).count > 0 %>
