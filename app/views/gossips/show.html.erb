@@ -23,18 +23,19 @@
 
         <div class="formulaire">
         <p>
-          <%= form_tag url_for(controller => 'comments', :action => 'create', :id => @gossip.id), method: "post" do %>
-          <%= label_tag 'Comment' %>
-          <%= text_field_tag 'content' %>
-          <%= submit_tag "Create comment" %>
+          <%= form_tag url_for(controller: :comments, action: :create, id: params[:id], gossip_id: params[:id]), method: "post" do %>
+          <b><%= label_tag 'Continuer le commérage 👇' %></b> <br>
+          <%= text_field_tag 'content'%>
+          <%= submit_tag 'Commenter 😈', class:"btn btn-outline-dark btn-sm"%>
           <% end %>
         </p>
         </div>
 
-        <%= link_to "Éditer", edit_gossip_path(:id=> @gossip.id), class:"btn btn-info btn-sm", role:"button" %>
+        <p><b>Derniers commentaires</b></p>
 
         <% @gossip.comments.each do |comment| %>
-          <p> <%= comment.user.first_name %> : <%= comment.content %> </p>
+          <p style="font-size:14px;"> <b><%= comment.user.first_name %></b> <br>
+            <%= comment.content %> </p>
         <% end %>
 
   </body>
