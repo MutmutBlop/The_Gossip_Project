@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_secure_password
+
   belongs_to :city
   has_many :gossips
   has_many :sent_messages, foreign_key: 'sender_id', class_name: "PrivateMessage"
@@ -9,5 +12,9 @@ class User < ApplicationRecord
   presence: true,
   uniqueness: true,
   format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Mauvais format" }
+
+  validates :password,
+  presence: true,
+  length: { in: 6..20 }
 
 end
