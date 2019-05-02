@@ -18,6 +18,16 @@
         <p> 🗓 Date de création : <%= @gossip.created_at %> </p>
         <p> 💩 Ce doss' a été lâché par <b><%= @gossip.user.first_name %></b> (t'as cru qu'on allait garder ça anonyme)</p>
         <p>
+          <% if logged_in? == true %>
+            <% if @gossip.likes.where(user_id: current_user.id).count > 0 %>
+            <%= link_to "Unlike", like_path(:id=> @gossip.likes.sample), class:"btn btn-danger btn-sm", role:"button", data: {:method => "delete"} %>
+            <% else %>
+            <%= link_to "Like", likes_path(:gossip_id=> @gossip.id), class:"btn btn-info btn-sm", role:"button", data: {:method => "create"} %>
+          <% end %>
+          <% end %>
+          <span style="font-size:14px;">Likes :<%= @gossip.likes.count %></span>
+        </p>
+        <p>
         <%= link_to "Voir l'auteur", user_path(:id => @gossip.user.id), class:"btn btn-primary btn-sm", role:"button" %>
         <%= link_to "Voir la ville", city_path(:id => @gossip.user.city.id), class:"btn btn-primary btn-sm", role:"button" %>
         </p>
